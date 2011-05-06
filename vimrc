@@ -173,6 +173,7 @@ augroup filetype
 	au FileType x\=h\=t\=ml\(django\)\= setlocal tabstop=4
 	au FileType x\=h\=t\=ml\(django\)\= setlocal shiftwidth=4
 	au FileType x\=h\=t\=ml\(django\)\= setlocal softtabstop=4
+	au FileType x\=h\=t\=ml\(django\)\= let b:delimitMate_autoclose=0
 
 	au FileType tex setlocal makeprg=make
 
@@ -214,17 +215,36 @@ nmap <Leader><space> :nohl<CR>
 nmap <C-c> :close<CR>
 " close buffer
 map <Leader>d :bd<CR>
-map <Leader>tt :TlistToggle<CR>
+map <Leader>tl :TlistToggle<CR>
 
 map <F12> :Ex<CR>
 
+" window movement
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" window movement + size adjustment
+map <C-H> <C-W>h<C-W>_
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-L> <C-W>l<C-W>_
+
+" wrapped lines movement by row
+nnoremap j gj
+nnoremap k gk
+
+" buffer movement
 nnoremap ;[ :bp<CR>
 nnoremap ;] :bn<CR>
+
+" yank till \n
+nnoremap Y y$
+
+" visual shift (do not leave visual mode)
+vnoremap < <gv
+vnoremap > >gv
 
 inoremap <silent> <C-u> <ESC>u:set paste<CR>.:set nopaste<CR>gi
 set pastetoggle=<Leader>p
@@ -266,7 +286,6 @@ vmap <F5> <esc>:BufExplorer<cr>
 imap <F5> <esc><esc>:BufExplorer<cr>
 
 " plugin settings
-let g:netrw_sort_sequence='[\/]$,\.[a-np-z]$,\.h$,\.c$,\.cpp$,\.py$,\.sh$,*,\.o$,\.obj$,\.info$,\.pyc$,\.swp$,\.bak$,\~$'
 
 " TagList
 let Tlist_Show_One_File = 0
@@ -281,13 +300,30 @@ let Tlist_Enable_Fold_Column = 0
 let Tlist_WinWidth = 30
 let Tlist_WinHeight = 50
 
-" TabBar fancy (Visible) colors
+" netrw
+let g:netrw_sort_sequence='[\/]$,\.[a-np-z]$,\.h$,\.c$,\.cpp$,\.py$,\.sh$,*,\.o$,\.obj$,\.info$,\.pyc$,\.swp$,\.bak$,\~$'
+
+" nerd tree
+let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeHighlightCursorline=1
+let g:NERDTreeShowHidden=0
+let g:NERDTreeCaseSensitiveSort=1
+let g:NERDTreeMinimalUI=1
+
+map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+map <leader>e :NERDTreeFind<CR>
+nmap <leader>nt :NERDTreeFind<CR>
+
+" showmarks
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+" TabBar fancy (visible) colors
 "highlight def link Tb_Normal         Identifier
 "highlight def link Tb_Changed        Operator
 "highlight def link Tb_VisibleNormal  Constant
 "highlight def link Tb_VisibleChanged Special
 
-" A path to a clang executable.
+" clang smart completion
 let g:clang_path = "/usr/bin/clang"
 
 " A list of options to add to the clang commandline, for example to add
@@ -408,6 +444,8 @@ function! ClangComplete(findstart, base)
 	return []
 endfunction ClangComplete
 
+" shell capture
+
 function! s:ExecuteInShell(command, bang)
 	let _ = a:bang != '' ? s:_ : a:command == '' ? '' : join(map(split(a:command), 'expand(v:val)'))
 
@@ -433,7 +471,6 @@ endfunction
 
 command! -complete=shellcmd -nargs=* -bang Shell call s:ExecuteInShell(<q-args>, '<bang>')
 cabbrev sh Shell
-
 
 let g:lcolor_fg='22,23,24,25,26,27'
 let g:lcolor_bg='253,254,255,253,254,255'
