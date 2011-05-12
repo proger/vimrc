@@ -151,6 +151,8 @@ augroup filetype
 	au BufRead,BufNewFile *.s setlocal filetype=asmx86_64
 	au BufRead,BufNewFile *.S setlocal filetype=asmx86_64
 
+	au BufRead,BufNewFile *.pp setlocal filetype=pascal
+
 	au FileType c setlocal tags+=/sys/tags
 	au FileType c setlocal path+=/sys,/sys/arch/amd64/compile/SUNDEBUG
 	au FileType c setlocal noexpandtab
@@ -173,7 +175,9 @@ augroup filetype
 	au FileType x\=h\=t\=ml\(django\)\= setlocal tabstop=4
 	au FileType x\=h\=t\=ml\(django\)\= setlocal shiftwidth=4
 	au FileType x\=h\=t\=ml\(django\)\= setlocal softtabstop=4
-	au FileType x\=h\=t\=ml\(django\)\= let b:delimitMate_autoclose=0
+	au FileType x\=h\=t\=ml\(django\)\= let b:delimitMate_autoclose = 0
+
+	au FileType ocaml let b:surround_45 = "(* \r *)"
 
 	au FileType tex setlocal makeprg=make
 
