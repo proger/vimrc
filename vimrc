@@ -474,7 +474,6 @@ function! s:ExecuteInShell(command, bang)
 endfunction
 
 command! -complete=shellcmd -nargs=* -bang Shell call s:ExecuteInShell(<q-args>, '<bang>')
-cabbrev sh Shell
 
 let g:lcolor_fg='22,23,24,25,26,27'
 let g:lcolor_bg='253,254,255,253,254,255'
