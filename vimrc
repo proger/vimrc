@@ -221,7 +221,7 @@ nmap <C-c> :close<CR>
 map <Leader>d :bd<CR>
 map <Leader>tl :TlistToggle<CR>
 
-map <F12> :Ex<CR>
+map <F12> :NERDTreeToggle<CR>
 
 " window movement
 map <C-h> <C-w>h
@@ -290,6 +290,10 @@ vmap <F5> <esc>:BufExplorer<cr>
 imap <F5> <esc><esc>:BufExplorer<cr>
 
 " plugin settings
+
+map <Leader>F :FufFileWithCurrentBufferDir<CR>
+map <Leader>T :FufTag<CR>
+map <Leader>B :FufBuffer<CR>
 
 " TagList
 let Tlist_Show_One_File = 0
