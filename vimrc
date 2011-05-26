@@ -153,6 +153,8 @@ augroup filetype
 
 	au BufRead,BufNewFile *.pp setlocal filetype=pascal
 
+	au FileType dot setlocal cindent
+
 	au FileType c setlocal tags+=/sys/tags
 	au FileType c setlocal path+=/sys,/sys/arch/amd64/compile/SUNDEBUG
 	au FileType c setlocal noexpandtab
