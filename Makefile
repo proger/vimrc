@@ -5,3 +5,7 @@ install:
 bundlelist:
 	find bundle -path '*/.git/config' | \
 		xargs awk -F= '/url =/ { split(FILENAME, path, "/"); print path[2], $$2 }' > bundle.list
+
+bundleclone:
+	[ ! -d bundle ] && mkdir bundle
+	(cd bundle; cat ../bundle.list | awk '{printf "%s %s\n", $2, $1}' | xargs -P 2 -t -n2 git clone)

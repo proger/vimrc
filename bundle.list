@@ -19,4 +19,4 @@ ocaml  http://github.com/MarcWeber/vim-addon-ocaml.git
 mw-actions  http://github.com/MarcWeber/vim-addon-actions.git
 vim-addon-goto-thing-at-cursor  http://github.com/MarcWeber/vim-addon-goto-thing-at-cursor.git
 mw-completion  http://github.com/MarcWeber/vim-addon-completion.git
-mw-addons-vam  http://github.com/MarcWeber/vim-addon-manager
+mw-addons-vam  http://github.com/MarcWeber/vim-addon-manager.git
