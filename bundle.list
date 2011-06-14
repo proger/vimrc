@@ -1,10 +1,8 @@
 Marks-Browser  http://github.com/vim-scripts/Marks-Browser.git
-ShowMarks  http://github.com/vim-scripts/ShowMarks.git
 aftersyntaxc.vim  http://github.com/vim-scripts/aftersyntaxc.vim.git
 asciidoc.vim  http://github.com/vim-scripts/asciidoc.vim.git
 asmx86  http://github.com/vim-scripts/asmx86.git
 asmx86_64  http://github.com/vim-scripts/asmx86_64.git
-delimitMate  http://github.com/Raimondi/delimitMate.git
 python.vim  http://github.com/vim-scripts/python.vim--Vasiliev.git
 vim-repeat  http://github.com/tpope/vim-repeat.git
 vim-surround  http://github.com/tpope/vim-surround.git
@@ -20,3 +18,5 @@ mw-actions  http://github.com/MarcWeber/vim-addon-actions.git
 vim-addon-goto-thing-at-cursor  http://github.com/MarcWeber/vim-addon-goto-thing-at-cursor.git
 mw-completion  http://github.com/MarcWeber/vim-addon-completion.git
 mw-addons-vam  http://github.com/MarcWeber/vim-addon-manager.git
+vim-l9  http://github.com/slack/vim-l9.git
+FuzzyFinder  http://github.com/vim-scripts/FuzzyFinder.git
