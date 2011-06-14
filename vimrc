@@ -163,10 +163,10 @@ augroup filetype
 	au FileType c setlocal omnifunc=ClangComplete
 	"au! FileType c exec 'match ErrorMsg /\%>' . 80 . 'v.\+/'
 
-	au FileType python\|javascript\|haskell setlocal expandtab
-	au FileType python\|javascript\|haskell setlocal tabstop=4
-	au FileType python\|javascript\|haskell setlocal shiftwidth=4
-	au FileType python\|javascript\|haskell setlocal softtabstop=4
+	au FileType python\|javascript\|haskell\|pyrex setlocal expandtab
+	au FileType python\|javascript\|haskell\|pyrex setlocal tabstop=4
+	au FileType python\|javascript\|haskell\|pyrex setlocal shiftwidth=4
+	au FileType python\|javascript\|haskell\|pyrex setlocal softtabstop=4
 
 	au FileType cpp setlocal cindent
 	au FileType cpp setlocal noexpandtab
@@ -184,6 +184,8 @@ augroup filetype
 	au FileType tex setlocal makeprg=make
 
 	au BufRead *mutt-* setlocal tw=72
+
+	au BufNewFile,BufRead *.stp	setlocal filetype=stap
 augroup END
 let perl_extended_vars=1
 let python_highlight_all=1
