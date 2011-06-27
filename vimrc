@@ -223,7 +223,8 @@ nmap <Leader><space> :nohl<CR>
 nmap <C-c> :close<CR>
 " close buffer
 map <Leader>d :bd<CR>
-map <Leader>tl :TlistToggle<CR>
+"map <Leader>tl :TlistToggle<CR>
+map <Leader>tl :TagbarToggle<CR>
 
 map <F12> :NERDTreeToggle<CR>
 
@@ -300,17 +301,23 @@ map <Leader>T :FufTag<CR>
 map <Leader>B :FufBuffer<CR>
 
 " TagList
-let Tlist_Show_One_File = 0
-let Tlist_Exist_OnlyWindow = 1
-"let Tlist_Use_Right_Window = 1
-let Tlist_Use_Horiz_Window = 1
-let Tlist_Display_Prototype = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Display_Tag_Scope = 1
-let Tlist_Close_On_Select = 1
-let Tlist_Enable_Fold_Column = 0
-let Tlist_WinWidth = 30
-let Tlist_WinHeight = 50
+let Tlist_Show_One_File= 0
+let Tlist_Exist_OnlyWindow= 1
+"let Tlist_Use_Right_Window= 1
+let Tlist_Use_Horiz_Window= 1
+let Tlist_Display_Prototype= 1
+let Tlist_GainFocus_On_ToggleOpen= 1
+let Tlist_Display_Tag_Scope= 1
+let Tlist_Close_On_Select= 1
+let Tlist_Enable_Fold_Column= 0
+let Tlist_WinWidth= 30
+let Tlist_WinHeight= 50
+
+" TagBar
+let g:tagbar_autoclose=1
+let g:tagbar_autofocus=1
+let g:tagbar_autoshowtag=1
+let g:tagbar_sort=0
 
 " netrw
 let g:netrw_sort_sequence='[\/]$,\.[a-np-z]$,\.h$,\.c$,\.cpp$,\.py$,\.sh$,*,\.o$,\.obj$,\.info$,\.pyc$,\.swp$,\.bak$,\~$'
