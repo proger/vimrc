@@ -1,0 +1,90 @@
+diff --git a/UltiSnips/c.snippets b/UltiSnips/c.snippets
+index fbdf68f..42836c2 100644
+--- a/UltiSnips/c.snippets
++++ b/UltiSnips/c.snippets
+@@ -26,7 +26,7 @@ $0
+ endsnippet
+ 
+ snippet main "main() (main)"
+-int main(int argc, char const *argv[])
++int main(int argc, char **argv)
+ {
+ 	${0:/* code */}
+ 	return 0;
+@@ -34,14 +34,15 @@ int main(int argc, char const *argv[])
+ endsnippet
+ 
+ snippet for "for int loop (fori)"
+-for (${4:size_t} ${2:i} = 0; $2 < ${1:count}; ${3:++$2})
+-{
++for (${4:int} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
+ 	${0:/* code */}
+ }
+ endsnippet
+ 
+ snippet enum "Enumeration"
+-enum ${1:name} { $0 };
++enum ${1:name} {
++	$0
++};
+ endsnippet
+ 
+ snippet once "Include header once only guard"
+@@ -57,7 +58,7 @@ else:
+ 
+ ${0}
+ 
+-#endif /* end of include guard: $1 */
++#endif /* $1 */
+ 
+ endsnippet
+ 
+@@ -76,8 +77,7 @@ fprintf(${1:stderr}, "${2:%s}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%
+ endsnippet
+ 
+ snippet if "if .. (if)"
+-if (${1:/* condition */})
+-{
++if (${1:/* condition */}) {
+ 	${0:/* code */}
+ }
+ endsnippet
+@@ -87,8 +87,7 @@ printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2
+ endsnippet
+ 
+ snippet st "struct"
+-struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`}
+-{
++struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`} {
+ 	${0:/* data */}
+ };
+ endsnippet
+diff --git a/UltiSnips/cpp.snippets b/UltiSnips/cpp.snippets
+index 9d2eb86..3bb58d7 100644
+--- a/UltiSnips/cpp.snippets
++++ b/UltiSnips/cpp.snippets
+@@ -8,20 +8,18 @@ ${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:
+ endsnippet
+ 
+ snippet cl "class .. (class)"
+-class ${1:`!p snip.rv = snip.basename or "name"`}
+-{
+-public:
++class ${1:`!p snip.rv = snip.basename or "name"`} {
++ public:
+ 	${1/(\w+).*/$1/} (${2:arguments});
+ 	virtual ~${1/(\w+).*/$1/} ();
+ 
+-private:
++ private:
+ 	${0:/* data */}
+ };
+ endsnippet
+ 
+ snippet ns "namespace .. (namespace)"
+-namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`}
+-{
++namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`} {
+ 	$0
+ }${1/.+/ \/* /m}$1${1/.+/ *\/ /m}
+ endsnippet

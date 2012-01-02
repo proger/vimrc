@@ -1,0 +1,11 @@
+This is my Vi-Improved configuration.
+
+Bundles are managed manually. I keep a list of diffs to apply
+to freshly cloned bundles to avoid forking them.
+
+Cloning:
+
+$ cd
+$ git clone http://github.com/proger/vimrc .vim
+$ cd .vim
+$ make bootstrap
