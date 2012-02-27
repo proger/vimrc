@@ -1,5 +1,4 @@
-"	/home/proger/.vimrc	"
-
+map ; :
 set nocompatible
 
 set backup
@@ -15,13 +14,19 @@ set backspace=indent,eol,start
 syntax on
 if &term == "xterm"
 	set t_Co=256
+	"let g:solarized_termcolors=256
+	"let g:solarized_contrast="high"
+	"colorscheme solarized
+	"colorscheme inkpot
+	colorscheme rdark-terminal
 	colorscheme 256-grayvim
+	"colorscheme ir_black
 endif
 
 "set autochdir
 set ttyfast
 set lazyredraw
-set clipboard+=unnamed
+set clipboard=unnamed
 set mouse=a
 set novisualbell
 
@@ -44,15 +49,17 @@ set cursorline
 set ruler
 if has("gui_running")
 	"colorscheme default
-	set bg=light
+	"set bg=light
+	colorscheme lucius
 	set guioptions=aegitc
 	set toolbar=icons
 	set toolbariconsize=tiny
-	set lines=26
-	set columns=82
+	set lines=40
+	set columns=125
 	set cursorline
 	set encoding=utf-8
-	set guifont=Fixed\ 14
+	"set guifont=Fixed\ 14
+	set guifont=Menlo\ Regular:h12
 
 	map <Leader>fhh :set gfn=Lucida\ Console\ 70<CR>:set ls=0<CR>
 	map <Leader>fb :set gfn=Terminus\ Bold\ 16<CR>
@@ -62,7 +69,7 @@ endif
 " statusline
 set laststatus=2				" 2 to always show
 set statusline=
-set statusline+=%n\  				" buffer number
+set statusline+=[buf:\ %n]\ 			" buffer number
 set statusline+=%f\                          	" file name
 
 let g:scm_cache = {}
@@ -114,10 +121,10 @@ au BufWinEnter *
 
 if has('title') && (has('gui_running') || &title)
 	set titlestring=
-	set titlestring+=%f\		 				" file name
-	set titlestring+=%h%m%r%	 				" flags
+	set titlestring+=%f		 				" file name
+	set titlestring+=%h%m%r	 				" flags
 	set titlestring+=\ -\ %{v:progname}				" program name
-	set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}  " working directory
+	set titlestring+=\ -\ %{substitute(getcwd(),\ '/Volumes/HDD/proger',\ '~',\ '')}  " working directory
 endif
 
 " matching parenthesis
@@ -132,7 +139,8 @@ set sidescrolloff=18
 set nowrap
 
 " editing
-set keymap=russian-jcukenwin	" ^6 to change
+"set keymap=russian-jcukenwin	" ^6 to change
+set keymap=ukrainian-jcuken	" ^6 to change
 set iminsert=0 			" latin by default
 set imsearch=0 
 
@@ -147,9 +155,17 @@ augroup filetype
  	au BufRead,BufNewFile *.ll setlocal filetype=llvm
  	au BufRead,BufNewFile *.td setlocal filetype=tablegen
 	au BufRead,BufNewFile *.edc setlocal filetype=edc
+	au BufRead,BufNewFile *.qml setlocal filetype=qml
 
+	au BufRead,BufNewFile *.d setlocal filetype=c
 	au BufRead,BufNewFile *.s setlocal filetype=asmx86_64
 	au BufRead,BufNewFile *.S setlocal filetype=asmx86_64
+	au BufRead,BufNewFile *.m setlocal filetype=objc
+	au BufRead,BufNewFile kgmacros* setlocal filetype=gdb
+	au BufRead,BufNewFile kgmacros* setlocal et
+	au BufRead,BufNewFile kgmacros* setlocal sts=4
+
+	au BufRead,BufNewFile *.eco setlocal filetype=html
 
 	au BufRead,BufNewFile *.pp setlocal filetype=pascal
 
@@ -161,12 +177,15 @@ augroup filetype
 	au FileType c setlocal cindent
 	au FileType c setlocal cinoptions=:0,t0,+4,(4
 	au FileType c setlocal omnifunc=ClangComplete
+
+	au FileType cpp setlocal omnifunc=ClangComplete
 	"au! FileType c exec 'match ErrorMsg /\%>' . 80 . 'v.\+/'
 
-	au FileType python\|javascript\|haskell\|pyrex setlocal expandtab
-	au FileType python\|javascript\|haskell\|pyrex setlocal tabstop=4
-	au FileType python\|javascript\|haskell\|pyrex setlocal shiftwidth=4
-	au FileType python\|javascript\|haskell\|pyrex setlocal softtabstop=4
+	au FileType python\|java\|ruby\|javascript\|haskell\|pyrex\|objc\|qml\|erlang setlocal expandtab
+	au FileType python\|java\|ruby\|javascript\|haskell\|pyrex\|objc\|qml\|erlang setlocal tabstop=4
+	au FileType python\|java\|ruby\|javascript\|haskell\|pyrex\|objc\|qml\|erlang setlocal shiftwidth=4
+	au FileType python\|java\|ruby\|javascript\|haskell\|pyrex\|objc\|qml\|erlang setlocal softtabstop=4
+	au FileType python ab ipdb import pdb, traceback; traceback.print_stack(); pdb.set_trace()
 
 	au FileType cpp setlocal cindent
 	au FileType cpp setlocal noexpandtab
@@ -186,15 +205,19 @@ augroup filetype
 	au BufRead *mutt-* setlocal tw=72
 
 	au BufNewFile,BufRead *.stp	setlocal filetype=stap
+
+	au BufNewFile,BufRead *.as	setlocal filetype=javascript
 augroup END
 let perl_extended_vars=1
 let python_highlight_all=1
+let python_space_error_highlight=0
 let hs_highlight_delimiters=1
 let hs_highlight_boolean=1
 let hs_highlight_types=1
 let hs_allow_hash_operator=1
 let g:haskell_indent_if=4
 let g:haskell_indent_case=4
+let g:haddock_browser="open"
 
 set complete+=.		" current buffer
 set complete+=k		" dictionary
@@ -300,6 +323,8 @@ map <Leader>F :FufFileWithCurrentBufferDir<CR>
 map <Leader>T :FufTag<CR>
 map <Leader>B :FufBuffer<CR>
 
+map <C-{> :BufExplorer<CR>
+
 " TagList
 let Tlist_Show_One_File= 0
 let Tlist_Exist_OnlyWindow= 1
@@ -318,6 +343,7 @@ let g:tagbar_autoclose=1
 let g:tagbar_autofocus=1
 let g:tagbar_autoshowtag=1
 let g:tagbar_sort=0
+let g:tagbar_ctags_bin="/usr/local/bin/ctags"
 
 " netrw
 let g:netrw_sort_sequence='[\/]$,\.[a-np-z]$,\.h$,\.c$,\.cpp$,\.py$,\.sh$,*,\.o$,\.obj$,\.info$,\.pyc$,\.swp$,\.bak$,\~$'
@@ -348,7 +374,7 @@ let g:clang_path = "/usr/bin/clang"
 " A list of options to add to the clang commandline, for example to add
 " include paths, predefined macros, and language options.
 let g:clang_opts = [
-  \ "-x","c",
+  \ "-x","c++",
   \ "-D__STDC_LIMIT_MACROS=1","-D__STDC_CONSTANT_MACROS=1"
   \ ]
 
@@ -492,3 +518,5 @@ command! -complete=shellcmd -nargs=* -bang Shell call s:ExecuteInShell(<q-args>,
 
 let g:lcolor_fg='22,23,24,25,26,27'
 let g:lcolor_bg='253,254,255,253,254,255'
+
+set modeline

@@ -27,7 +27,7 @@ let colors_name="rdark-terminal"
 hi clear CursorLine
 hi CursorLine ctermbg=8
 
-hi Normal term=NONE cterm=NONE ctermbg=0 ctermfg=252
+hi Normal term=NONE cterm=NONE ctermbg=16 ctermfg=252
 hi Underlined term=underline cterm=underline ctermbg=bg ctermfg=111
 hi Ignore term=NONE cterm=NONE ctermbg=bg ctermfg=16
 hi Error term=reverse cterm=NONE ctermbg=160 ctermfg=255
@@ -36,7 +36,7 @@ hi Number term=NONE cterm=NONE ctermbg=bg ctermfg=113
 hi String term=NONE cterm=NONE ctermbg=bg ctermfg=113
 hi Function term=NONE cterm=NONE ctermbg=bg ctermfg=116
 hi SpecialKey term=bold cterm=NONE ctermbg=bg ctermfg=196
-hi NonText term=bold cterm=NONE ctermbg=8 ctermfg=236
+hi NonText term=bold cterm=NONE ctermbg=16 ctermfg=236
 hi MatchParen term=reverse cterm=NONE ctermbg=215 ctermfg=23
 hi Comment term=bold cterm=NONE ctermbg=bg ctermfg=245
 hi Constant term=underline cterm=NONE ctermbg=bg ctermfg=113

@@ -9,9 +9,9 @@ let c_gnu = 1
 
 
 " == Normal color ==
-hi Normal           guifg=#e0e0e0           guibg=#202020
+"hi Normal           guifg=#e0e0e0           guibg=#202020
 "hi Normal           ctermfg=253             ctermbg=234
-hi Normal           ctermfg=255             ctermbg=0
+"hi Normal           ctermfg=255             ctermbg=0
 
 
 " == Comments ==
