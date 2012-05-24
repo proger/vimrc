@@ -33,6 +33,7 @@ set novisualbell
 set history=1000
 set undolevels=1000
 set modeline
+set modelines=5
 
 set hidden	" allow to switch buffers without saving
 
@@ -169,6 +170,8 @@ augroup filetype
 
 	au BufRead,BufNewFile *.pp setlocal filetype=pascal
 
+	au BufRead,BufNewFile sys.config setlocal ft=erlang
+
 	au FileType dot setlocal cindent
 
 	au FileType c setlocal tags+=/sys/tags
@@ -201,6 +204,8 @@ augroup filetype
 	au FileType ocaml let b:surround_45 = "(* \r *)"
 
 	au FileType tex setlocal makeprg=make
+	au FileType tex setlocal wrap
+	au FileType plaintex setlocal wrap
 
 	au BufRead *mutt-* setlocal tw=72
 
@@ -320,6 +325,7 @@ imap <F5> <esc><esc>:BufExplorer<cr>
 " plugin settings
 
 map <Leader>F :FufFileWithCurrentBufferDir<CR>
+map <Leader>G :FufCoverageFile<CR>
 map <Leader>T :FufTag<CR>
 map <Leader>B :FufBuffer<CR>
 
