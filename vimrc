@@ -526,3 +526,15 @@ let g:lcolor_fg='22,23,24,25,26,27'
 let g:lcolor_bg='253,254,255,253,254,255'
 
 set modeline
+
+function! Classdump()
+	let file = bufname('%')
+	let jar = matchstr(file, 'zipfile:\zs.*.jar\ze::.*')
+	let class = substitute(matchstr(file, 'zipfile:.*.jar::\zs.*\ze.class'), '/', '.', '')
+	let comm = 'javap -classpath ' . jar . ' ' . class
+
+	silent! execute 'silent! %!'. comm
+	silent! setlocal filetype=java
+endfunction
+
+au FileType stata call Classdump()
