@@ -16,6 +16,7 @@ if &term == "xterm"
 	set t_Co=256
 	"let g:solarized_termcolors=256
 	"let g:solarized_contrast="high"
+	"let g:solarized_visibility="high"
 	"colorscheme solarized
 	"colorscheme inkpot
 	colorscheme rdark-terminal
@@ -184,10 +185,14 @@ augroup filetype
 	au FileType cpp setlocal omnifunc=ClangComplete
 	"au! FileType c exec 'match ErrorMsg /\%>' . 80 . 'v.\+/'
 
-	au FileType python\|java\|ruby\|javascript\|haskell\|pyrex\|objc\|qml\|erlang setlocal expandtab
-	au FileType python\|java\|ruby\|javascript\|haskell\|pyrex\|objc\|qml\|erlang setlocal tabstop=4
-	au FileType python\|java\|ruby\|javascript\|haskell\|pyrex\|objc\|qml\|erlang setlocal shiftwidth=4
-	au FileType python\|java\|ruby\|javascript\|haskell\|pyrex\|objc\|qml\|erlang setlocal softtabstop=4
+	au FileType python\|java\|javascript\|haskell\|pyrex\|objc\|qml setlocal expandtab
+	au FileType python\|java\|javascript\|haskell\|pyrex\|objc\|qml setlocal tabstop=4
+	au FileType python\|java\|javascript\|haskell\|pyrex\|objc\|qml setlocal shiftwidth=4
+	au FileType python\|java\|javascript\|haskell\|pyrex\|objc\|qml setlocal softtabstop=4
+	au FileType ruby\|erlang setlocal expandtab
+	au FileType ruby\|erlang setlocal tabstop=2
+	au FileType ruby\|erlang setlocal shiftwidth=2
+	au FileType ruby\|erlang setlocal softtabstop=2
 	au FileType python ab ipdb import pdb, traceback; traceback.print_stack(); pdb.set_trace()
 
 	au FileType cpp setlocal cindent
@@ -256,6 +261,13 @@ map <Leader>tl :TagbarToggle<CR>
 
 map <F12> :NERDTreeToggle<CR>
 
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+
 " window movement
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -283,6 +295,51 @@ nnoremap Y y$
 vnoremap < <gv
 vnoremap > >gv
 
+" paragraph movement
+" http://stackoverflow.com/questions/1853025/make-and-ignore-lines-containing-only-whitespace
+function! ParagraphMove(delta, visual, count)
+    normal m'
+    normal |
+    if a:visual
+        normal gv
+    endif
+
+    if a:count == 0
+        let limit = 1
+    else
+        let limit = a:count
+    endif
+
+    let i = 0
+    while i < limit
+        if a:delta > 0
+            " first whitespace-only line following a non-whitespace character           
+            let pos1 = search("\\S", "W")
+            let pos2 = search("^\\s*$", "W")
+            if pos1 == 0 || pos2 == 0
+                let pos = search("\\%$", "W")
+            endif
+        elseif a:delta < 0
+            " first whitespace-only line preceding a non-whitespace character           
+            let pos1 = search("\\S", "bW")
+            let pos2 = search("^\\s*$", "bW")
+            if pos1 == 0 || pos2 == 0
+                let pos = search("\\%^", "bW")
+            endif
+        endif
+        let i += 1
+    endwhile
+    normal |
+endfunction
+
+nnoremap <silent> } :<C-U>call ParagraphMove( 1, 0, v:count)<CR>
+onoremap <silent> } :<C-U>call ParagraphMove( 1, 0, v:count)<CR>
+vnoremap <silent> } :<C-U>call ParagraphMove( 1, 1)<CR>
+nnoremap <silent> { :<C-U>call ParagraphMove(-1, 0, v:count)<CR>
+onoremap <silent> { :<C-U>call ParagraphMove(-1, 0, v:count)<CR>
+vnoremap <silent> { :<C-U>call ParagraphMove(-1, 1)<CR>
+
+" paste
 inoremap <silent> <C-u> <ESC>u:set paste<CR>.:set nopaste<CR>gi
 set pastetoggle=<Leader>p
 
@@ -533,6 +590,8 @@ let g:lcolor_fg='22,23,24,25,26,27'
 let g:lcolor_bg='253,254,255,253,254,255'
 
 set modeline
+
+let g:zip_unzipcmd="unzipq"
 
 function! Classdump()
 	let file = bufname('%')
