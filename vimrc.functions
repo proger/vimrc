@@ -1,0 +1,224 @@
+" paragraph movement
+" http://stackoverflow.com/questions/1853025/make-and-ignore-lines-containing-only-whitespace
+function! ParagraphMove(delta, visual, count)
+    normal m'
+    normal |
+    if a:visual
+        normal gv
+    endif
+
+    if a:count == 0
+        let limit = 1
+    else
+        let limit = a:count
+    endif
+
+    let i = 0
+    while i < limit
+        if a:delta > 0
+            " first whitespace-only line following a non-whitespace character           
+            let pos1 = search("\\S", "W")
+            let pos2 = search("^\\s*$", "W")
+            if pos1 == 0 || pos2 == 0
+                let pos = search("\\%$", "W")
+            endif
+        elseif a:delta < 0
+            " first whitespace-only line preceding a non-whitespace character           
+            let pos1 = search("\\S", "bW")
+            let pos2 = search("^\\s*$", "bW")
+            if pos1 == 0 || pos2 == 0
+                let pos = search("\\%^", "bW")
+            endif
+        endif
+        let i += 1
+    endwhile
+    normal |
+endfunction
+
+nnoremap <silent> } :<C-U>call ParagraphMove( 1, 0, v:count)<CR>
+onoremap <silent> } :<C-U>call ParagraphMove( 1, 0, v:count)<CR>
+vnoremap <silent> } :<C-U>call ParagraphMove( 1, 1, v:count)<CR>
+nnoremap <silent> { :<C-U>call ParagraphMove(-1, 0, v:count)<CR>
+onoremap <silent> { :<C-U>call ParagraphMove(-1, 0, v:count)<CR>
+vnoremap <silent> { :<C-U>call ParagraphMove(-1, 1, v:count)<CR>
+
+" java class unzipping
+let g:zip_unzipcmd="unzipq" " make sure you have it in $PATH
+
+function! Classdump()
+	let file = bufname('%')
+	let jar = matchstr(file, 'zipfile:\zs.*.jar\ze::.*')
+	let class = substitute(matchstr(file, 'zipfile:.*.jar::\zs.*\ze.class'), '/', '.', '')
+	let comm = 'javap -classpath ' . jar . ' ' . class
+
+	silent! execute 'silent! %!'. comm
+	silent! setlocal filetype=java
+endfunction
+
+au FileType stata call Classdump()
+
+" shell capture
+
+function! s:ExecuteInShell(command, bang)
+	let _ = a:bang != '' ? s:_ : a:command == '' ? '' : join(map(split(a:command), 'expand(v:val)'))
+
+	if (_ != '')
+		let s:_ = _
+		let bufnr = bufnr('%')
+		let winnr = bufwinnr('^' . _ . '$')
+		silent! execute  winnr < 0 ? 'new ' . fnameescape(_) : winnr . 'wincmd w'
+		setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap number
+		silent! :%d
+		let message = 'Execute ' . _ . '...'
+		call append(0, message)
+		echo message
+		silent! 2d | resize 1 | redraw
+		silent! execute 'silent! %!'. _
+		silent! execute 'resize ' . line('$')
+		silent! execute 'autocmd BufUnload <buffer> execute bufwinnr(' . bufnr . ') . ''wincmd w'''
+		silent! execute 'autocmd BufEnter <buffer> execute ''resize '' .  line(''$'')'
+		silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . _ . ''', '''')<CR>'
+		silent! execute 'nnoremap <silent> <buffer> <LocalLeader>g :execute bufwinnr(' . bufnr . ') . ''wincmd w''<CR>'
+	endif
+endfunction
+
+command! -complete=shellcmd -nargs=* -bang Shell call s:ExecuteInShell(<q-args>, '<bang>')
+
+" clang smart completion
+let g:clang_path = "/usr/bin/clang"
+
+" A list of options to add to the clang commandline, for example to add
+" include paths, predefined macros, and language options.
+let g:clang_opts = [
+  \ "-x","c++",
+  \ "-D__STDC_LIMIT_MACROS=1","-D__STDC_CONSTANT_MACROS=1"
+  \ ]
+
+function! ClangComplete(findstart, base)
+	if a:findstart == 1
+		" In findstart mode, look for the beginning of the current identifier.
+		let l:line = getline('.')
+		let l:start = col('.') - 1
+		while l:start > 0 && l:line[l:start - 1] =~ '\i'
+			let l:start -= 1
+		endwhile
+		return l:start
+	endif
+
+	" Get the current line and column numbers.
+	let l:l = line('.')
+	let l:c = col('.')
+
+	" Build a clang commandline to do code completion on stdin.
+	let l:the_command = shellescape(g:clang_path) .
+							\ " -cc1 -code-completion-at=-:" . l:l . ":" . l:c
+	for l:opt in g:clang_opts
+		let l:the_command .= " " . shellescape(l:opt)
+	endfor
+
+	" Copy the contents of the current buffer into a string for stdin.
+	" TODO: The extra space at the end is for working around clang's
+	" apparent inability to do code completion at the very end of the
+	" input.
+	" TODO: Is it better to feed clang the entire file instead of truncating
+	" it at the current line?
+	let l:process_input = join(getline(1, l:l), "\n") . " "
+
+	" Run it!
+	let l:input_lines = split(system(l:the_command, l:process_input), "\n")
+
+	" Parse the output.
+	for l:input_line in l:input_lines
+		" Vim's substring operator is annoyingly inconsistent with python's.
+		if l:input_line[:11] == 'COMPLETION: '
+			let l:value = l:input_line[12:]
+
+			" Chop off anything after " : ", if present, and move it to the menu.
+			let l:menu = ""
+			let l:spacecolonspace = stridx(l:value, " : ")
+			if l:spacecolonspace != -1
+				let l:menu = l:value[l:spacecolonspace+3:]
+				let l:value = l:value[:l:spacecolonspace-1]
+			endif
+
+			" Chop off " (Hidden)", if present, and move it to the menu.
+			let l:hidden = stridx(l:value, " (Hidden)")
+			if l:hidden != -1
+				let l:menu .= " (Hidden)"
+				let l:value = l:value[:l:hidden-1]
+			endif
+
+			" Handle "Pattern". TODO: Make clang less weird.
+			if l:value == "Pattern"
+				let l:value = l:menu
+				let l:pound = stridx(l:value, "#")
+				" Truncate the at the first [#, <#, or {#.
+				if l:pound != -1
+					let l:value = l:value[:l:pound-2]
+				endif
+			endif
+
+			" Filter out results which don't match the base string.
+			if a:base != ""
+				if l:value[:strlen(a:base)-1] != a:base
+					continue
+				end
+			endif
+
+			" TODO: Don't dump the raw input into info, though it's nice for now.
+			" TODO: The kind string?
+			let l:item = {
+			 \ "word": l:value,
+			 \ "menu": l:menu,
+			 \ "info": l:input_line,
+			 \ "dup": 1 }
+
+			" Report a result.
+			if complete_add(l:item) == 0
+				return []
+			endif
+			if complete_check()
+				return []
+			endif
+
+		elseif l:input_line[:9] == "OVERLOAD: "
+			" An overload candidate. Use a crazy hack to get vim to
+			" display the results. TODO: Make this better.
+			let l:value = l:input_line[10:]
+			let l:item = {
+			  \ "word": " ",
+			  \ "menu": l:value,
+			  \ "info": l:input_line,
+			  \ "dup": 1}
+
+			" Report a result.
+			if complete_add(l:item) == 0
+				return []
+			endif
+			if complete_check()
+				return []
+			endif
+
+		endif
+	endfor
+
+	return []
+endfunction ClangComplete
+
+" root mode
+fun! SudoWrite()
+	write !sudo tee % >/dev/null
+	edit!
+endfun
+command! SW :call SudoWrite()
+
+" show function name
+fun! ShowFuncName()
+	let lnum = line(".")
+	let col = col(".")
+	echohl ModeMsg
+	echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW'))
+	echohl None
+	call search("\\%" . lnum . "l" . "\\%" . col . "c")
+endfun
+map <Leader>f :call ShowFuncName()<CR>
