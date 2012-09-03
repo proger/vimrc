@@ -154,13 +154,13 @@ hi WildMenu     guifg=Black             guibg=SkyBlue           gui=NONE
 " =============================================================================
 hi Normal cterm=NONE ctermfg=16  ctermbg=none
 hi Comment      ctermfg=242
-hi Constant     ctermfg=214
+hi Constant     ctermfg=56
     hi String   ctermfg=30
     hi Boolean  ctermfg=88
 hi Identifier   ctermfg=160
 hi Function     ctermfg=132
 hi Statement    ctermfg=21
-hi Keyword      ctermfg=45
+hi Keyword      ctermfg=30
 hi PreProc      ctermfg=27
 hi Type         ctermfg=23
 hi Special      ctermfg=64
