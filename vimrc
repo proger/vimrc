@@ -24,7 +24,7 @@ syntax on
 set ttyfast
 set lazyredraw
 set clipboard=unnamed
-set mouse=a
+set mouse=n
 set novisualbell
 
 set history=1000
@@ -39,7 +39,7 @@ set shortmess=asI
 set report=0
 set showcmd
 set showmode
-set wildignore=*.o,*.so,*.pico,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
+set wildignore=*.o,*.so,*.pico,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png,*.beam,tags,*.class
 set wildmenu
 set wildmode=list:full
 set hlsearch

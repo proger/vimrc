@@ -11,18 +11,22 @@ if &term == "xterm"
 	"colorscheme 256-grayvim
 	"colorscheme ir_black
 
-    colorscheme mayansmoke " light
+    "colorscheme mayansmoke " light
+	colorscheme lucius
 endif
 
 if has("gui_running")
 	"colorscheme default
 	"set bg=light
+	"colorscheme lucius
+	colorscheme rdark-terminal
+	colorscheme 256-grayvim
 	colorscheme lucius
 	set guioptions=aegitc
 	set toolbar=icons
 	set toolbariconsize=tiny
-	set lines=40
-	set columns=125
+	set lines=57
+	set columns=145
 	set cursorline
 	set encoding=utf-8
 	"set guifont=Fixed\ 14

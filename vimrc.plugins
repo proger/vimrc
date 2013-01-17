@@ -31,10 +31,13 @@ sunmap e
 
 " plugin settings
 
+let g:fuf_buffertag_ctagsPath="~/local/bin/ctags"
 map <Leader>F :FufFileWithCurrentBufferDir<CR>
 map <Leader>G :FufCoverageFile<CR>
 map <Leader>T :FufTag<CR>
 map <Leader>B :FufBuffer<CR>
+"nnoremap <silent> <C-]> :FufBufferTagAllWithCursorWord!<CR>
+"vnoremap <silent> <C-]> :FufBufferTagAllWithSelectedText!<CR> 
 
 map <C-{> :BufExplorer<CR>
 
@@ -89,3 +92,7 @@ nmap <F5> <Esc>:BufExplorer<cr>
 vmap <F5> <esc>:BufExplorer<cr>
 imap <F5> <esc><esc>:BufExplorer<cr>
 
+
+let g:ctrlp_extensions = ['tag', 'buffertag']
+"let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = ''

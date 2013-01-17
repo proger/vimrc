@@ -13,6 +13,9 @@ Bundle "tsaleh/vim-align.git"
 Bundle "slack/vim-l9.git"
 Bundle "tpope/vim-repeat.git"
 Bundle "tpope/vim-surround.git"
+Bundle "mileszs/ack.vim.git"
+
+Bundle "kien/ctrlp.vim.git"
 
 " colorschemes
 "Bundle "pyte"
@@ -26,6 +29,7 @@ Bundle "tpope/vim-surround.git"
 " languages
 "Bundle "jimenezrick/vimerl.git"
 Bundle "oscarh/vimerl.git"
+Bundle "elixir-lang/vim-elixir.git"
 Bundle "vim-scripts/asciidoc.vim.git"
 Bundle "vim-scripts/asmx86.git"
 Bundle "vim-scripts/asmx86_64.git"
@@ -33,3 +37,4 @@ Bundle "msanders/cocoa.vim.git"
 Bundle "lukerandall/haskellmode-vim.git"
 Bundle "vim-scripts/indenthaskell.vim.git"
 Bundle "vim-scripts/python.vim--Vasiliev.git"
+Bundle "vim-scripts/javacomplete.git"
