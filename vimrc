@@ -42,9 +42,11 @@ set showmode
 set wildignore=*.o,*.so,*.pico,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png,*.beam,tags,*.class
 set wildmenu
 set wildmode=list:full
-set hlsearch
 set cursorline
 set ruler
+
+set hlsearch
+nmap \q :nohlsearch<CR>
 
 " matching parenthesis
 set showmatch
