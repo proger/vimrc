@@ -166,3 +166,7 @@ if filereadable(expand("~/.vim/vimrc.plugins"))
 	source ~/.vim/vimrc.plugins
 endif
 
+if filereadable(expand("~/.vim/vimrc.emacs"))
+	source ~/.vim/vimrc.emacs
+endif
+
