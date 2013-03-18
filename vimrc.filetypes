@@ -85,6 +85,9 @@ augroup filetype
 	au BufNewFile,BufRead *.stp	setlocal filetype=stap
 
 	au BufNewFile,BufRead *.as	setlocal filetype=javascript
+
+	au FileType haskell nnoremap <buffer> \ht :HdevtoolsType<CR>
+	au FileType haskell nnoremap <buffer> <silent> \hc :HdevtoolsClear<CR>
 augroup END
 let perl_extended_vars=1
 let python_highlight_all=1
