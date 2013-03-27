@@ -15,9 +15,7 @@ if has("gui_running")
 	"colorscheme default
 	"set bg=light
 	"colorscheme lucius
-	colorscheme rdark-terminal
-	colorscheme 256-grayvim
-	colorscheme lucius
+    colorscheme molokai
 	set guioptions=aegitc
 	set toolbar=icons
 	set toolbariconsize=tiny

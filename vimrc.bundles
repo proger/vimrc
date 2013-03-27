@@ -31,7 +31,8 @@ Bundle "vim-scripts/aftersyntaxc.vim.git"
 "Bundle "tpope/vim-surround.git"
 
 " colors
-Bundle "tomasr/molokai.git"
+"Bundle "tomasr/molokai.git"
+Bundle "spf13/vim-colors.git"
 
 "
 Bundle "scrooloose/syntastic.git"
@@ -41,6 +42,8 @@ Bundle "elixir-lang/vim-elixir.git"
 Bundle "vim-scripts/python.vim--Vasiliev.git"
 Bundle "vim-scripts/VimClojure.git"
 Bundle "Glench/Vim-Jinja2-Syntax.git"
+Bundle "kchmck/vim-coffee-script.git"
+Bundle "pangloss/vim-javascript.git"
 
 " haskell: cabal install hdevtools
 Bundle "bitc/vim-hdevtools.git"
