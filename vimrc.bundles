@@ -3,11 +3,11 @@ Bundle "tpope/vim-rsi"
 
 Bundle "Lokaltog/vim-powerline.git"
 Bundle "kien/ctrlp.vim.git"
-Bundle "docunext/closetag.vim.git"
+"Bundle "docunext/closetag.vim.git"
 Bundle "scrooloose/nerdtree.git"
 
 Bundle "mileszs/ack.vim.git"
-Bundle "airblade/vim-gitgutter.git"
+"Bundle "airblade/vim-gitgutter.git"
 
 Bundle "fholgado/minibufexpl.vim.git"
 Bundle "vim-scripts/bufexplorer.zip.git"
@@ -16,7 +16,7 @@ Bundle "bkad/CamelCaseMotion.git"
 Bundle "vim-scripts/matchit.zip.git"
 
 Bundle "majutsushi/tagbar.git"
-Bundle "vim-scripts/rainbow_parentheses.vim"
+Bundle "kien/rainbow_parentheses.vim.git"
 
 Bundle "tsaleh/vim-align.git"
 
@@ -33,14 +33,17 @@ Bundle "vim-scripts/aftersyntaxc.vim.git"
 " colors
 "Bundle "tomasr/molokai.git"
 Bundle "spf13/vim-colors.git"
-
 "
-Bundle "scrooloose/syntastic.git"
+"Bundle "scrooloose/syntastic.git"
 
 " languages
-Bundle "elixir-lang/vim-elixir.git"
+"Bundle "elixir-lang/vim-elixir.git"
 Bundle "vim-scripts/python.vim--Vasiliev.git"
-Bundle "vim-scripts/VimClojure.git"
+
+Bundle "guns/vim-clojure-static.git"
+Bundle "tpope/vim-classpath.git"
+Bundle "tpope/vim-fireplace.git"
+
 Bundle "Glench/Vim-Jinja2-Syntax.git"
 Bundle "kchmck/vim-coffee-script.git"
 Bundle "pangloss/vim-javascript.git"
@@ -48,8 +51,8 @@ Bundle "pangloss/vim-javascript.git"
 " haskell: cabal install hdevtools
 Bundle "bitc/vim-hdevtools.git"
 Bundle "vim-scripts/indenthaskell.vim.git"
+
 "Bundle "lukerandall/haskellmode-vim.git"
-"Bundle "vim-scripts/indenthaskell.vim.git"
 
 "Bundle "jimenezrick/vimerl.git"
 "Bundle "oscarh/vimerl.git"

@@ -22,12 +22,9 @@ au BufWinEnter *
 	\ windo call <SID>TagListOptions() |
 	\ exec oldwinnr . " wincmd w"
 
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
+map <Leader>w <Plug>CamelCaseMotion_w
+map <Leader>b <Plug>CamelCaseMotion_b
+map <Leader>r <Plug>CamelCaseMotion_e
 
 " plugin settings
 
@@ -109,4 +106,11 @@ let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
+
+
+" rainbow paren
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
