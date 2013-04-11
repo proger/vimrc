@@ -28,35 +28,18 @@ map <Leader>r <Plug>CamelCaseMotion_e
 
 " plugin settings
 
-"let g:fuf_buffertag_ctagsPath="~/local/bin/ctags"
-"map <Leader>F :FufFileWithCurrentBufferDir<CR>
-"map <Leader>G :FufCoverageFile<CR>
-"map <Leader>T :FufTag<CR>
-"map <Leader>B :FufBuffer<CR>
-"nnoremap <silent> <C-]> :FufBufferTagAllWithCursorWord!<CR>
-"vnoremap <silent> <C-]> :FufBufferTagAllWithSelectedText!<CR> 
-
 map <C-{> :BufExplorer<CR>
-
-" TagList
-let Tlist_Show_One_File= 0
-let Tlist_Exist_OnlyWindow= 1
-"let Tlist_Use_Right_Window= 1
-let Tlist_Use_Horiz_Window= 1
-let Tlist_Display_Prototype= 1
-let Tlist_GainFocus_On_ToggleOpen= 1
-let Tlist_Display_Tag_Scope= 1
-let Tlist_Close_On_Select= 1
-let Tlist_Enable_Fold_Column= 0
-let Tlist_WinWidth= 30
-let Tlist_WinHeight= 50
 
 " TagBar
 let g:tagbar_autoclose=1
 let g:tagbar_autofocus=1
 let g:tagbar_autoshowtag=1
 let g:tagbar_sort=0
+let g:tagbar_width=80
+let g:tagbar_compact=1
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
+
+map <leader>m :TagbarToggle<CR>
 
 " netrw
 let g:netrw_sort_sequence='[\/]$,\.[a-np-z]$,\.h$,\.c$,\.cpp$,\.py$,\.sh$,*,\.o$,\.obj$,\.info$,\.pyc$,\.swp$,\.bak$,\~$'
@@ -76,10 +59,10 @@ nmap <leader>nt :NERDTreeFind<CR>
 let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 " TabBar fancy (visible) colors
-"highlight def link Tb_Normal         Identifier
-"highlight def link Tb_Changed        Operator
-"highlight def link Tb_VisibleNormal  Constant
-"highlight def link Tb_VisibleChanged Special
+highlight def link Tb_Normal         Identifier
+highlight def link Tb_Changed        Operator
+highlight def link Tb_VisibleNormal  Constant
+highlight def link Tb_VisibleChanged Special
 
 let g:lcolor_fg='22,23,24,25,26,27'
 let g:lcolor_bg='253,254,255,253,254,255'
@@ -114,3 +97,13 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+" Search Dash for word under cursor
+function! SearchDash()
+  let s:browser = "/usr/bin/open"
+  let s:wordUnderCursor = expand("<cword>")
+  let s:url = "dash://".s:wordUnderCursor
+  let s:cmd ="silent ! " . s:browser . " " . s:url
+  execute s:cmd
+  redraw!
+endfunction
+map <leader>K :call SearchDash()<CR>
