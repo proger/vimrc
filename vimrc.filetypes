@@ -35,6 +35,8 @@ augroup filetype
 	au BufRead,BufNewFile reltool.config setlocal ft=erlang
 	au BufRead,BufNewFile *.src setlocal ft=erlang
 
+	au BufRead,BufNewFile *.hsc setlocal filetype=haskell
+
 	au FileType dot setlocal cindent
 
 	"au FileType c setlocal tags+=/sys/tags
@@ -77,6 +79,7 @@ augroup filetype
 
 	au FileType haskell nnoremap <buffer> \ht :HdevtoolsType<CR>
 	au FileType haskell nnoremap <buffer> <silent> \hc :HdevtoolsClear<CR>
+	au FileType haskell map K :!open 'http://haskell.org/hoogle/?hoogle='<cword><CR><CR>
 augroup END
 let perl_extended_vars=1
 let python_highlight_all=1
