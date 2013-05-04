@@ -8,14 +8,14 @@ if !has("gui_running")
 	"colorscheme 256-grayvim
 	"colorscheme lucius
     "colorscheme Monokai-Refined
-    colorscheme molokai
+    colorscheme molokai2
 endif
 
 if has("gui_running")
 	"colorscheme default
 	"set bg=light
 	"colorscheme lucius
-    colorscheme molokai
+    colorscheme molokai2
 	set guioptions=aegitc
 	set toolbar=icons
 	set toolbariconsize=tiny
