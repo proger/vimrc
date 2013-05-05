@@ -50,9 +50,14 @@ Bundle "pangloss/vim-javascript.git"
 
 " haskell: cabal install hdevtools
 Bundle "bitc/vim-hdevtools.git"
-Bundle "vim-scripts/indenthaskell.vim.git"
-
+Bundle "dag/vim2hs.git"
+		" quite many features
+Bundle "travitch/hasksyn.git"
+		" fast and new
+"Bundle "vim-scripts/indenthaskell.vim.git"
+"		" used with haskellmode-vim
 "Bundle "lukerandall/haskellmode-vim.git"
+"		" old-n-bad
 
 "Bundle "jimenezrick/vimerl.git"
 "Bundle "oscarh/vimerl.git"
