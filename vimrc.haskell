@@ -1,0 +1,29 @@
+
+" haskell: cabal install hdevtools
+Bundle "bitc/vim-hdevtools.git"
+Bundle "dag/vim2hs.git"
+		" quite many features
+Bundle "travitch/hasksyn.git"
+		" fast and new
+"Bundle "vim-scripts/indenthaskell.vim.git"
+"		" used with haskellmode-vim
+"Bundle "lukerandall/haskellmode-vim.git"
+"		" old-n-bad
+
+augroup filetype
+	au BufRead,BufNewFile *.hsc setlocal filetype=haskell
+
+	au FileType haskell setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+
+	au FileType haskell nnoremap <buffer> \ht :HdevtoolsType<CR>
+	au FileType haskell nnoremap <buffer> <silent> \hc :HdevtoolsClear<CR>
+	au FileType haskell map K :!open 'http://haskell.org/hoogle/?hoogle='<cword><CR><CR>
+augroup END
+
+let hs_highlight_delimiters=1
+let hs_highlight_boolean=1
+let hs_highlight_types=1
+let hs_allow_hash_operator=1
+let g:haskell_indent_if=4
+let g:haskell_indent_case=4
+let g:haddock_browser="open"

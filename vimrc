@@ -152,23 +152,10 @@ cnoremap <Esc>f <S-Right>
 
 set modeline
 
-if filereadable(expand("~/.vim/vimrc.ui"))
-	source ~/.vim/vimrc.ui
-endif
-
-if filereadable(expand("~/.vim/vimrc.filetypes"))
-	source ~/.vim/vimrc.filetypes
-endif
-
-if filereadable(expand("~/.vim/vimrc.functions"))
-	source ~/.vim/vimrc.functions
-endif
-
-if filereadable(expand("~/.vim/vimrc.plugins"))
-	source ~/.vim/vimrc.plugins
-endif
-
-if filereadable(expand("~/.vim/vimrc.emacs"))
-	source ~/.vim/vimrc.emacs
-endif
-
+"for i in ["vimrc.ui", "vimrc.functions", "vimrc.plugins", "vimrc.filetypes", "vimrc.clang"]
+"	let fn = expand("~/.vim/" . i)
+for fn in split(glob("~/.vim/vimrc.*"))
+	if match(fn, "bundles$") <= 0 && filereadable(fn)
+		exec ":source " . fn
+	endif
+endfor

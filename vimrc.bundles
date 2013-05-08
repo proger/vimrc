@@ -1,4 +1,3 @@
-
 Bundle "tpope/vim-rsi"
 
 Bundle "Lokaltog/vim-powerline.git"
@@ -19,16 +18,19 @@ Bundle "majutsushi/tagbar.git"
 Bundle "kien/rainbow_parentheses.vim.git"
 
 Bundle "tsaleh/vim-align.git"
+Bundle "godlygeek/tabular.git"
 
 " Allows a single language (filetype) to have multiple .vim/after/syntax/ files
 Bundle "vim-scripts/aftersyntax.vim.git"
-Bundle "vim-scripts/aftersyntaxc.vim.git"
 
 "Bundle "vim-scripts/Marks-Browser.git"
 "Bundle "vim-scripts/UltiSnips.git"
 "Bundle "slack/vim-l9.git"
 "Bundle "tpope/vim-repeat.git"
 "Bundle "tpope/vim-surround.git"
+
+Bundle "kana/vim-textobj-user.git"
+Bundle "kana/vim-textobj-indent.git"
 
 " colors
 "Bundle "tomasr/molokai.git"
@@ -40,30 +42,11 @@ Bundle "spf13/vim-colors.git"
 "Bundle "elixir-lang/vim-elixir.git"
 Bundle "vim-scripts/python.vim--Vasiliev.git"
 
-Bundle "guns/vim-clojure-static.git"
-Bundle "tpope/vim-classpath.git"
-Bundle "tpope/vim-fireplace.git"
-
 Bundle "Glench/Vim-Jinja2-Syntax.git"
 Bundle "kchmck/vim-coffee-script.git"
 Bundle "pangloss/vim-javascript.git"
 
-" haskell: cabal install hdevtools
-Bundle "bitc/vim-hdevtools.git"
-Bundle "dag/vim2hs.git"
-		" quite many features
-Bundle "travitch/hasksyn.git"
-		" fast and new
-"Bundle "vim-scripts/indenthaskell.vim.git"
-"		" used with haskellmode-vim
-"Bundle "lukerandall/haskellmode-vim.git"
-"		" old-n-bad
-
 "Bundle "jimenezrick/vimerl.git"
 "Bundle "oscarh/vimerl.git"
 "Bundle "vim-scripts/asciidoc.vim.git"
-"Bundle "vim-scripts/asmx86.git"
-"Bundle "vim-scripts/asmx86_64.git"
-"Bundle "msanders/cocoa.vim.git"
-"Bundle "vim-scripts/javacomplete.git"
 "Bundle "ocim/htmljinja.vim.git"

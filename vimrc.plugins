@@ -77,7 +77,7 @@ vmap \b <esc>:BufExplorer<cr>
 imap \b <esc><esc>:BufExplorer<cr>
 
 " CtrlP
-nmap ; :CtrlP<CR>
+nmap ;; :CtrlP<CR>
 
 let g:ctrlp_extensions = ['tag', 'buffertag']
 "let g:ctrlp_working_path_mode = 'ra'
@@ -95,7 +95,7 @@ let g:ctrlp_switch_buffer = 0
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadBraces	" XXX: hasksyn may break
 
 " Search Dash for word under cursor
 function! SearchDash()
