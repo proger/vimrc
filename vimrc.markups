@@ -1,0 +1,7 @@
+Bundle "avakhov/vim-yaml.git"
+
+Bundle "tpope/vim-markdown.git"
+Bundle "mkitt/markdown-preview.vim.git"
+
+
+let g:instant_markdown_slow = 1

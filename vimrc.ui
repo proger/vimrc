@@ -12,10 +12,9 @@ if !has("gui_running")
 endif
 
 if has("gui_running")
-	"colorscheme default
-	"set bg=light
-	"colorscheme lucius
-    colorscheme molokai2
+    "colorscheme molokai2
+    colorscheme mayansmoke
+
 	set guioptions=aegitc
 	set toolbar=icons
 	set toolbariconsize=tiny

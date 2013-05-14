@@ -202,7 +202,7 @@ hi StatusLine   ctermfg=255             ctermbg=24              cterm=NONE
 hi StatusLineNC ctermfg=253             ctermbg=110             cterm=NONE
 hi Title        ctermfg=75              ctermbg=255             cterm=NONE
 hi VertSplit    ctermfg=255             ctermbg=24              cterm=NONE
-hi Visual       ctermfg=255             ctermbg=153             cterm=NONE
+hi Visual       ctermfg=255             ctermbg=149             cterm=NONE
 hi WildMenu     ctermfg=16              ctermbg=117             cterm=NONE
 
 " 1}}}

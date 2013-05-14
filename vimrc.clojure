@@ -1,3 +1,4 @@
 Bundle "guns/vim-clojure-static.git"
 Bundle "tpope/vim-classpath.git"
 Bundle "tpope/vim-fireplace.git"
+Bundle "vim-scripts/paredit.vim.git"
