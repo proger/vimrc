@@ -28,6 +28,8 @@ function! s:unite_settings()
 	nmap <buffer> Q <plug>(unite_exit)
 	nmap <buffer> <esc> <plug>(unite_exit)
 	imap <buffer> <esc> <plug>(unite_exit)
+	nmap <buffer> <C-c> <plug>(unite_exit)
+	imap <buffer> <C-c> <plug>(unite_exit)
 endfunction
 autocmd FileType unite call s:unite_settings()
 
