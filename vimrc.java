@@ -1,7 +1,7 @@
 "Bundle "vim-scripts/javacomplete.git"
 
 " java class unzipping
-let g:zip_unzipcmd="unzipq" " make sure you have it in $PATH
+"let g:zip_unzipcmd="unzipq" " make sure you have it in $PATH
 
 function! Classdump()
 	let file = bufname('%')

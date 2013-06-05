@@ -1,11 +1,13 @@
 Bundle "tpope/vim-rsi"
 
 Bundle "Lokaltog/vim-powerline.git"
-Bundle "kien/ctrlp.vim.git"
 "Bundle "docunext/closetag.vim.git"
 Bundle "scrooloose/nerdtree.git"
 
-Bundle "mileszs/ack.vim.git"
+"Bundle "kien/ctrlp.vim.git"
+"Bundle "mileszs/ack.vim.git"
+
+
 "Bundle "airblade/vim-gitgutter.git"
 
 Bundle "fholgado/minibufexpl.vim.git"
