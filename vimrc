@@ -1,4 +1,6 @@
 map ; :
+
+
 set nocompatible
 
 filetype off
@@ -85,16 +87,16 @@ nmap :Q :q
 nmap :WQ :wq
 nmap :Wq :wq
 
-map <Leader>ZZ :qa<CR>
-map <Leader>ll :set list<CR>
-map <Leader>l; :set nolist<CR>
+nmap <Leader>ZZ :qa<CR>
+nmap <Leader>ll :set list<CR>
+nmap <Leader>l; :set nolist<CR>
 nmap <Leader><space> :nohl<CR>
 " close window
 nmap <C-c> :close<CR>
 " close buffer
-map <Leader>d :bd<CR>
+nmap <Leader>d :bd<CR>
 "map <Leader>tl :TlistToggle<CR>
-map <Leader>tl :TagbarToggle<CR>
+nmap <Leader>tl :TagbarToggle<CR>
 
 map <F12> :NERDTreeToggle<CR>
 
@@ -144,11 +146,11 @@ vmap ;' <Plug>PComment
 command! Gentags :!exctags -R --c-kinds=+p --fields=+iaS --extra=+q .
 
 " commandline mode
-cnoremap <C-A> <Home>
-cnoremap <C-F> <Right>
-cnoremap <C-B> <Left>
-cnoremap <Esc>b <S-Left>
-cnoremap <Esc>f <S-Right>
+"cnoremap <C-A> <Home>
+"cnoremap <C-F> <Right>
+"cnoremap <C-B> <Left>
+"cnoremap <Esc>b <S-Left>
+"cnoremap <Esc>f <S-Right>
 
 set modeline
 

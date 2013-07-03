@@ -25,9 +25,9 @@ if has("gui_running")
 	"set guifont=Fixed\ 14
 	set guifont=Menlo\ Regular:h12
 
-	map <Leader>fhh :set gfn=Lucida\ Console\ 70<CR>:set ls=0<CR>
-	map <Leader>fb :set gfn=Terminus\ Bold\ 16<CR>
-	map <Leader>fm :set gfn=Terminus\ Bold\ 15<CR>
+	nmap <Leader>fhh :set gfn=Lucida\ Console\ 70<CR>:set ls=0<CR>
+	nmap <Leader>fb :set gfn=Terminus\ Bold\ 16<CR>
+	nmap <Leader>fm :set gfn=Terminus\ Bold\ 15<CR>
 endif
 
 if has('title') && (has('gui_running') || &title)

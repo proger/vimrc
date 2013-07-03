@@ -29,8 +29,8 @@ Bundle "SirVer/ultisnips.git"
 
 "Bundle "vim-scripts/Marks-Browser.git"
 "Bundle "slack/vim-l9.git"
-"Bundle "tpope/vim-repeat.git"
-"Bundle "tpope/vim-surround.git"
+Bundle "tpope/vim-repeat.git"
+Bundle "tpope/vim-surround.git"
 
 
 Bundle "kana/vim-textobj-user.git"
@@ -43,14 +43,11 @@ Bundle "spf13/vim-colors.git"
 "Bundle "scrooloose/syntastic.git"
 
 " languages
-"Bundle "elixir-lang/vim-elixir.git"
 Bundle "vim-scripts/python.vim--Vasiliev.git"
 
 Bundle "Glench/Vim-Jinja2-Syntax.git"
 Bundle "kchmck/vim-coffee-script.git"
 Bundle "pangloss/vim-javascript.git"
 
-"Bundle "jimenezrick/vimerl.git"
-"Bundle "oscarh/vimerl.git"
 "Bundle "vim-scripts/asciidoc.vim.git"
 "Bundle "ocim/htmljinja.vim.git"

@@ -22,9 +22,9 @@ au BufWinEnter *
 	\ windo call <SID>TagListOptions() |
 	\ exec oldwinnr . " wincmd w"
 
-map <Leader>w <Plug>CamelCaseMotion_w
-map <Leader>b <Plug>CamelCaseMotion_b
-map <Leader>r <Plug>CamelCaseMotion_e
+nmap <Leader>w <Plug>CamelCaseMotion_w
+nmap <Leader>b <Plug>CamelCaseMotion_b
+nmap <Leader>r <Plug>CamelCaseMotion_e
 
 " plugin settings
 
