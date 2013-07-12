@@ -4,6 +4,9 @@ install:
 	-git clone https://github.com/gmarik/vundle.git bundle/vundle
 	vim +BundleInstall +qall
 
-misc:
+misc: vimproc
 	-gem install redcarpet pygments.rb
 	npm -g install instant-markdown-d
+
+vimproc:
+	cd bundle/vimproc.vim; make -f make_mac.mak

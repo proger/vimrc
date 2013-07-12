@@ -1,6 +1,3 @@
-map ; :
-
-
 set nocompatible
 
 filetype off

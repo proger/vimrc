@@ -15,8 +15,9 @@ augroup filetype
 
 	au FileType haskell setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
-	au FileType haskell nnoremap <buffer> \ht :HdevtoolsType<CR>
-	au FileType haskell nnoremap <buffer> <silent> \hc :HdevtoolsClear<CR>
+	au FileType haskell nnoremap <buffer> ;t :HdevtoolsType<CR>
+	au FileType haskell nnoremap <buffer> ;i :HdevtoolsInfo<CR>
+	au FileType haskell nnoremap <buffer> <silent> ;c :HdevtoolsClear<CR>
 	au FileType haskell map K :!open 'http://haskell.org/hoogle/?hoogle='<cword><CR><CR>
 augroup END
 
