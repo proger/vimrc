@@ -8,5 +8,11 @@ misc: vimproc
 	-gem install redcarpet pygments.rb
 	npm -g install instant-markdown-d
 
+
+ifeq ($(shell uname),Darwin)
 vimproc:
 	cd bundle/vimproc.vim; make -f make_mac.mak
+else
+vimproc:
+	cd bundle/vimproc.vim; make -f make_unix.mak
+endif
