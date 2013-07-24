@@ -23,6 +23,8 @@ augroup filetype
 	au BufRead,BufNewFile reltool.config setlocal ft=erlang
 	au BufRead,BufNewFile *.src setlocal ft=erlang
 
+	au BufRead,BufNewFile *.md setlocal ft=markdown
+
 	au FileType dot setlocal cindent
 
 	"au FileType java setlocal omnifunc=javacomplete#Complete
