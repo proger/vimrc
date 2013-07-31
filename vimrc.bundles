@@ -5,7 +5,7 @@ Bundle "Lokaltog/vim-powerline.git"
 Bundle "scrooloose/nerdtree.git"
 
 "Bundle "kien/ctrlp.vim.git"
-"Bundle "mileszs/ack.vim.git"
+Bundle "mileszs/ack.vim.git"
 
 
 "Bundle "airblade/vim-gitgutter.git"

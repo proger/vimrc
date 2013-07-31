@@ -30,6 +30,7 @@ augroup filetype
 	au FileType python\|java\|javascript\|cabal\|pyrex\|objc\|qml setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 	au FileType erlang setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 	au FileType xml\|ant\|ruby\|coffee setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+	au FileType perl setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 	au FileType markdown setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
