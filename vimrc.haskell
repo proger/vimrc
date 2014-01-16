@@ -13,7 +13,7 @@ Bundle "travitch/hasksyn.git"
 augroup filetype
 	au BufRead,BufNewFile *.hsc setlocal filetype=haskell
 
-	au FileType haskell setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+	au FileType haskell setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 	au FileType haskell nnoremap <buffer> ;t :HdevtoolsType<CR>
 	au FileType haskell nnoremap <buffer> ;i :HdevtoolsInfo<CR>
