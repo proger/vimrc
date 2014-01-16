@@ -1,0 +1,3 @@
+Bundle "b4winckler/vim-objc"
+
+let c_no_curly_error = 1

@@ -91,7 +91,7 @@ nmap <Leader><space> :nohl<CR>
 " close window
 nmap <C-c> :close<CR>
 " close buffer
-nmap <Leader>d :bd<CR>
+nmap <Leader>c :bd<CR>
 "map <Leader>tl :TlistToggle<CR>
 nmap <Leader>tl :TagbarToggle<CR>
 
