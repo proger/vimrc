@@ -51,3 +51,9 @@ Bundle "pangloss/vim-javascript.git"
 
 "Bundle "vim-scripts/asciidoc.vim.git"
 "Bundle "ocim/htmljinja.vim.git"
+
+Bundle "MarcWeber/vim-addon-goto-thing-at-cursor.git"
+Bundle "MarcWeber/vim-addon-completion.git"
+Bundle "MarcWeber/vim-addon-actions.git"
+Bundle "MarcWeber/vim-addon-mw-utils.git"
+Bundle "MarcWeber/vim-addon-nix.git"
