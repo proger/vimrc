@@ -1,0 +1,4 @@
+Bundle "scrooloose/syntastic.git"
+
+map <silent> <Leader>s :SyntasticCheck<CR>
+let g:syntastic_always_populate_loc_list = 1

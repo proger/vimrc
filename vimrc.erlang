@@ -1,6 +1,8 @@
 
 Bundle "elixir-lang/vim-elixir.git"
 
+Bundle "edkolev/erlang-motions.vim.git"
+
 au BufRead,BufNewFile *.ex,*.exs,.iex set filetype=elixir
 au FileType elixir setl sw=2 sts=2 et iskeyword+=!,?
 

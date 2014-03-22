@@ -1,7 +1,6 @@
 " C and other C-related goo
 
-Bundle "vim-scripts/aftersyntaxc.vim.git"
-
+"Bundle "vim-scripts/aftersyntaxc.vim.git"
 "Bundle "vim-scripts/asmx86.git"
 "Bundle "vim-scripts/asmx86_64.git"
 "Bundle "msanders/cocoa.vim.git"
@@ -24,9 +23,9 @@ augroup filetype
 
 	au FileType c setlocal omnifunc=ClangComplete
 	au FileType cpp setlocal omnifunc=ClangComplete
-	au FileType cpp setlocal tags+=~/.vim/cxxtags
-	au FileType c setlocal tags+=/sys/tags
-	au FileType c setlocal path+=/sys,/sys/arch/amd64/compile/SUNDEBUG
+	"au FileType cpp setlocal tags+=~/.vim/cxxtags
+	"au FileType c setlocal tags+=/sys/tags
+	"au FileType c setlocal path+=/sys,/sys/arch/amd64/compile/SUNDEBUG
 	
 	au! FileType c exec 'match ErrorMsg /\%>' . 80 . 'v.\+/'
 	au FileType c\|cpp map <Leader>f :call ShowFuncName()<CR>
