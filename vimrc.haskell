@@ -18,6 +18,7 @@ augroup filetype
 	au FileType haskell nnoremap <buffer> ;t :HdevtoolsType<CR>
 	au FileType haskell nnoremap <buffer> ;i :HdevtoolsInfo<CR>
 	au FileType haskell nnoremap <buffer> <silent> ;c :HdevtoolsClear<CR>
+	au FileType haskell nnoremap <buffer> <silent> ;<Space> :HdevtoolsClear<CR>
 	au FileType haskell map K :!open 'http://haskell.org/hoogle/?hoogle='<cword><CR><CR>
 augroup END
 

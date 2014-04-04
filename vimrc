@@ -56,7 +56,9 @@ set iskeyword+=_,$,@,%,#
 set nostartofline
 set scrolloff=5
 set sidescrolloff=18
-set nowrap
+
+set wrap
+set linebreak
 
 " editing
 "set keymap=russian-jcukenwin	" ^6 to change

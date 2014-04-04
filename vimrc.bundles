@@ -58,3 +58,5 @@ Bundle "MarcWeber/vim-addon-completion.git"
 Bundle "MarcWeber/vim-addon-actions.git"
 Bundle "MarcWeber/vim-addon-mw-utils.git"
 Bundle "MarcWeber/vim-addon-nix.git"
+
+Bundle "rodjek/vim-puppet.git"

@@ -16,8 +16,6 @@ augroup filetype
 
 	au BufRead,BufNewFile *.eco setlocal filetype=html
 
-	au BufRead,BufNewFile *.pp setlocal filetype=pascal
-
 	au BufRead,BufNewFile sys.config setlocal ft=erlang
 	au BufRead,BufNewFile rebar.config setlocal ft=erlang
 	au BufRead,BufNewFile reltool.config setlocal ft=erlang

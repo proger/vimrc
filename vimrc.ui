@@ -3,23 +3,25 @@
 if !has("gui_running")
 	set t_Co=256
 
-    "colorscheme mayansmoke " light
+    colorscheme mayansmoke " light
 	"colorscheme rdark-terminal
 	"colorscheme 256-grayvim
 	"colorscheme lucius
     "colorscheme Monokai-Refined
-    colorscheme molokai2
+
+    "colorscheme molokai2
 endif
 
 if has("gui_running")
     colorscheme molokai2
+    colorscheme default
     "colorscheme mayansmoke
 
 	set guioptions=aegitc
 	set toolbar=icons
 	set toolbariconsize=tiny
-	set lines=57
-	set columns=145
+	set lines=45
+	set columns=115
 	set cursorline
 	set encoding=utf-8
 	"set guifont=Fixed\ 14
