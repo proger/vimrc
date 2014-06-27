@@ -1,16 +1,28 @@
 Bundle "tpope/vim-rsi"
 
-Bundle "Lokaltog/vim-powerline.git"
-"Bundle "docunext/closetag.vim.git"
 Bundle "scrooloose/nerdtree.git"
 
-"Bundle "kien/ctrlp.vim.git"
+Bundle "bling/vim-airline"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='base16'
+
+Bundle "kien/ctrlp.vim.git"
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+nmap ;; :CtrlP<CR>
+
+let g:ctrlp_extensions = ['tag', 'buffertag']
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_switch_buffer = 0
+
 Bundle "mileszs/ack.vim.git"
 
-
-"Bundle "airblade/vim-gitgutter.git"
-
-Bundle "fholgado/minibufexpl.vim.git"
 Bundle "vim-scripts/bufexplorer.zip.git"
 
 Bundle "bkad/CamelCaseMotion.git"
@@ -27,31 +39,18 @@ Bundle "vim-scripts/aftersyntax.vim.git"
 
 Bundle "SirVer/ultisnips.git"
 
-"Bundle "vim-scripts/Marks-Browser.git"
-"Bundle "slack/vim-l9.git"
 Bundle "tpope/vim-repeat.git"
 Bundle "tpope/vim-surround.git"
-
 
 Bundle "kana/vim-textobj-user.git"
 Bundle "kana/vim-textobj-indent.git"
 "Bundle "michaeljsmith/vim-indent-object.git"
 
-" colors
-"Bundle "tomasr/molokai.git"
-Bundle "spf13/vim-colors.git"
-"
-"Bundle "scrooloose/syntastic.git"
-
-" languages
 Bundle "vim-scripts/python.vim--Vasiliev.git"
 
 Bundle "Glench/Vim-Jinja2-Syntax.git"
 Bundle "kchmck/vim-coffee-script.git"
 Bundle "pangloss/vim-javascript.git"
-
-"Bundle "vim-scripts/asciidoc.vim.git"
-"Bundle "ocim/htmljinja.vim.git"
 
 Bundle "MarcWeber/vim-addon-goto-thing-at-cursor.git"
 Bundle "MarcWeber/vim-addon-completion.git"

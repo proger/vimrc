@@ -1,34 +1,7 @@
 
-fun! <SID>FixMiniBufExplorerTitle()
-	if "-MiniBufExplorer-" == bufname("%")
-		setlocal statusline=%2*%-3.3n%0*
-		setlocal statusline+=\[Buffers\]
-		setlocal statusline+=%=%2*\ %<%P
-	endif
-endfun
-
-fun! <SID>TagListOptions()
-	if "__Tag_List__" == bufname("%")
-		setlocal cursorline
-		setlocal statusline=%2*%-3.3n%0*
-		setlocal statusline+=\[Tag\ List\]
-		setlocal statusline+=%=%2*\ %<%P
-	endif
-endfun
-
-au BufWinEnter *
-	\ let oldwinnr=winnr() |
-	\ windo call <SID>FixMiniBufExplorerTitle() |
-	\ windo call <SID>TagListOptions() |
-	\ exec oldwinnr . " wincmd w"
-
 nmap <Leader>w <Plug>CamelCaseMotion_w
 nmap <Leader>b <Plug>CamelCaseMotion_b
 nmap <Leader>r <Plug>CamelCaseMotion_e
-
-" plugin settings
-
-map <C-{> :BufExplorer<CR>
 
 " TagBar
 let g:tagbar_autoclose=1
@@ -58,38 +31,10 @@ nmap <leader>nt :NERDTreeFind<CR>
 " showmarks
 let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-" TabBar fancy (visible) colors
-highlight def link Tb_Normal         Identifier
-highlight def link Tb_Changed        Operator
-highlight def link Tb_VisibleNormal  Constant
-highlight def link Tb_VisibleChanged Special
-
-let g:lcolor_fg='22,23,24,25,26,27'
-let g:lcolor_bg='253,254,255,253,254,255'
-
 " bufexplorer
 nmap <F5> <Esc>:BufExplorer<cr>
 vmap <F5> <esc>:BufExplorer<cr>
 imap <F5> <esc><esc>:BufExplorer<cr>
-
-nmap \b <Esc>:BufExplorer<cr>
-vmap \b <esc>:BufExplorer<cr>
-imap \b <esc><esc>:BufExplorer<cr>
-
-" CtrlP
-nmap ;; :CtrlP<CR>
-
-let g:ctrlp_extensions = ['tag', 'buffertag']
-"let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_working_path_mode = ''
-
-let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-let g:ctrlp_dotfiles = 0
-let g:ctrlp_switch_buffer = 0
-
 
 " rainbow paren
 au VimEnter * RainbowParenthesesToggle
@@ -114,9 +59,6 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 
-    "\ ['darkgray',    'DarkOrchid3'],
-    "\ ['black',       'SeaGreen3'],
-  
 " Search Dash for word under cursor
 function! SearchDash()
   let s:browser = "/usr/bin/open"

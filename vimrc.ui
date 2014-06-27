@@ -3,7 +3,8 @@
 if !has("gui_running")
 	set t_Co=256
 
-    colorscheme mayansmoke " light
+    "colorscheme mayansmoke " light
+    colorscheme smyck
 	"colorscheme rdark-terminal
 	"colorscheme 256-grayvim
 	"colorscheme lucius
@@ -13,9 +14,10 @@ if !has("gui_running")
 endif
 
 if has("gui_running")
-    colorscheme molokai2
-    colorscheme default
+    "colorscheme molokai2
+    "colorscheme default
     "colorscheme mayansmoke
+    colorscheme smyck
 
 	set guioptions=aegitc
 	set toolbar=icons
@@ -31,6 +33,8 @@ if has("gui_running")
 	nmap <Leader>fb :set gfn=Terminus\ Bold\ 16<CR>
 	nmap <Leader>fm :set gfn=Terminus\ Bold\ 15<CR>
 endif
+
+set fillchars=
 
 if has('title') && (has('gui_running') || &title)
 	set titlestring=

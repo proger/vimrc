@@ -14,6 +14,7 @@ augroup filetype
 	au BufRead,BufNewFile *.hsc setlocal filetype=haskell
 
 	au FileType haskell setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+	au FileType cabal setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 	au FileType haskell nnoremap <buffer> ;t :HdevtoolsType<CR>
 	au FileType haskell nnoremap <buffer> ;i :HdevtoolsInfo<CR>
@@ -29,3 +30,13 @@ let hs_allow_hash_operator=1
 let g:haskell_indent_if=4
 let g:haskell_indent_case=4
 let g:haddock_browser="open"
+
+function! FindCabalSandboxRoot()
+	return finddir('.cabal-sandbox', './;')
+endfunction
+
+function! FindCabalSandboxRootPackageConf()
+	return glob(FindCabalSandboxRoot().'/*-packages.conf.d')
+endfunction
+
+let g:hdevtools_options = '-g -ilib -g -itest -g -isrc -g -i. -g -idist/build/autogen -g -Wall -g -package-conf='.FindCabalSandboxRootPackageConf() 
