@@ -3,16 +3,16 @@ Bundle "tpope/vim-rsi"
 Bundle "scrooloose/nerdtree.git"
 
 Bundle "bling/vim-airline"
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='base16'
 
 Bundle "kien/ctrlp.vim.git"
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'ra'
 
-nmap ;; :CtrlP<CR>
+nmap ;; :CtrlPMRU<CR>
 
 let g:ctrlp_extensions = ['tag', 'buffertag']
 let g:ctrlp_match_window_bottom = 0
