@@ -45,3 +45,4 @@ if has('title') && (has('gui_running') || &title)
 endif
 
 set laststatus=2 " vim-powerline
+set splitright
