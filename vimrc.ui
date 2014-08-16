@@ -46,3 +46,4 @@ endif
 
 set laststatus=2 " vim-powerline
 set splitright
+set splitbelow
