@@ -1,14 +1,16 @@
 
 " haskell: cabal install hdevtools
 Bundle "bitc/vim-hdevtools.git"
-Bundle "dag/vim2hs.git"
+"Bundle "dag/vim2hs.git"
 		" quite many features
-Bundle "travitch/hasksyn.git"
+"Bundle "travitch/hasksyn.git"
 		" fast and new
 "Bundle "vim-scripts/indenthaskell.vim.git"
 "		" used with haskellmode-vim
 "Bundle "lukerandall/haskellmode-vim.git"
 "		" old-n-bad
+
+Bundle "raichoo/haskell-vim.git"
 
 augroup filetype
 	au BufRead,BufNewFile *.hsc setlocal filetype=haskell
