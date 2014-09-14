@@ -23,6 +23,7 @@ let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'ra'
 
 nmap ;; :CtrlPMRU<CR>
+nmap ;' :CtrlPRoot<CR>
 
 let g:ctrlp_extensions = ['tag', 'buffertag']
 let g:ctrlp_match_window_bottom = 0
