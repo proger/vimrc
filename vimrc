@@ -38,7 +38,7 @@ set shortmess=asI
 set report=0
 set showcmd
 set showmode
-set wildignore=*.o,*.so,*.pico,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png,*.beam,tags,*.class,*.hi,*.chi
+set wildignore=*.o,*.so,*.pico,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png,*.beam,tags,*.class,*.hi,*.chi,*.dyn_o,*.dyn_hi,*.dylib
 set wildmenu
 set wildmode=list:full
 set cursorline

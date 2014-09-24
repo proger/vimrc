@@ -19,11 +19,11 @@ let g:airline_linecolumn_prefix = ''
 
 Bundle "kien/ctrlp.vim.git"
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:ctrlp_cmd = 'CtrlPRoot'
 let g:ctrlp_working_path_mode = 'ra'
 
-nmap ;; :CtrlPMRU<CR>
-nmap ;' :CtrlPRoot<CR>
+nmap ;; :CtrlPBuffer<CR>
+nmap ;' :CtrlPMRU<CR>
 
 let g:ctrlp_extensions = ['tag', 'buffertag']
 let g:ctrlp_match_window_bottom = 0
@@ -31,6 +31,9 @@ let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
+
+Bundle 'JazzCore/ctrlp-cmatcher'
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 Bundle "mileszs/ack.vim.git"
 
