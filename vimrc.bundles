@@ -73,3 +73,5 @@ Bundle "MarcWeber/vim-addon-mw-utils.git"
 Bundle "MarcWeber/vim-addon-nix.git"
 
 Bundle "rodjek/vim-puppet.git"
+
+Bundle "tikhomirov/vim-glsl.git"

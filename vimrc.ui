@@ -26,7 +26,9 @@ if has("gui_running")
     set cursorline
     set lines=60
     set columns=204 " full screen at menlo h12 on macbook air 13"
-    set guifont=Menlo\ Regular:h12
+    "set guifont=Menlo\ Regular:h12
+    set guifont=Source\ Code\ Pro:h14
+    set linespace=-3
 
     set mouse=a
 endif

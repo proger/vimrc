@@ -38,9 +38,9 @@ function! FindCabalSandboxRoot()
 endfunction
 
 function! FindCabalSandboxRootPackageConf()
-	return glob(FindCabalSandboxRoot().'/*-packages.conf.d')
+	return get(split(glob(FindCabalSandboxRoot().'/*-packages.conf.d'), '\n'), -1, '')
 endfunction
 
-" let g:hdevtools_options = '-g -ilib -g -itest -g -isrc -g -i. -g -idist/build/autogen -g -Wall -g -package-conf='.FindCabalSandboxRootPackageConf() 
+let g:hdevtools_options = '-g -ilib -g -itest -g -isrc -g -i. -g -idist/build/autogen -g -no-user-package-db -g -package-conf='.FindCabalSandboxRootPackageConf() 
 " let g:hdevtools_options = '-g -ilib -g -itest -g -isrc -g -i. -g -idist/build/autogen -g -Wall '
-let g:hdevtools_options = '-g -ilib -g -itest -g -isrc -g -i. -g -idist/build/autogen'
+"let g:hdevtools_options = '-g -ilib -g -itest -g -isrc -g -i. -g -idist/build/autogen'
