@@ -1,10 +1,13 @@
 " vim: ft=vim
+"
+set bg=light
 
 if !has("gui_running")
     set t_Co=256
+    colorscheme hemisu
 
     "colorscheme mayansmoke " light
-    colorscheme smyck
+    "colorscheme smyck
     "colorscheme rdark-terminal
     "colorscheme 256-grayvim
     "colorscheme lucius
@@ -17,7 +20,8 @@ if has("gui_running")
     "colorscheme molokai2
     "colorscheme default
     "colorscheme mayansmoke
-    colorscheme chance-of-storm
+    "colorscheme chance-of-storm
+    colorscheme hemisu
 
     set guioptions=aegitc
     set toolbar=icons
