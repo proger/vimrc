@@ -60,12 +60,13 @@ Bundle "kana/vim-textobj-user.git"
 Bundle "kana/vim-textobj-indent.git"
 "Bundle "michaeljsmith/vim-indent-object.git"
 
-Bundle "vim-scripts/python.vim--Vasiliev.git"
+"Bundle "vim-scripts/python.vim--Vasiliev.git"
+"
+"Bundle "Glench/Vim-Jinja2-Syntax.git"
+"Bundle "kchmck/vim-coffee-script.git"
+"Bundle "pangloss/vim-javascript.git"
 
-Bundle "Glench/Vim-Jinja2-Syntax.git"
-Bundle "kchmck/vim-coffee-script.git"
-Bundle "pangloss/vim-javascript.git"
-
+Bundle "MarcWeber/vim-addon-errorformats.git"
 Bundle "MarcWeber/vim-addon-goto-thing-at-cursor.git"
 Bundle "MarcWeber/vim-addon-completion.git"
 Bundle "MarcWeber/vim-addon-actions.git"

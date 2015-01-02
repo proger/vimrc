@@ -41,6 +41,7 @@ function! FindCabalSandboxRootPackageConf()
 	return get(split(glob(FindCabalSandboxRoot().'/*-packages.conf.d'), '\n'), -1, '')
 endfunction
 
-let g:hdevtools_options = '-g -ilib -g -itest -g -isrc -g -i. -g -idist/build/autogen -g -no-user-package-db -g -package-conf='.FindCabalSandboxRootPackageConf() 
+"let g:syntastic_haskell_hdevtools_args = '-g -ilib -g -itest -g -isrc -g -i. -g -idist/build/autogen -g -no-user-package-db -g -package-conf='.FindCabalSandboxRootPackageConf() 
+"let g:hdevtools_options = '-g -ilib -g -itest -g -isrc -g -i. -g -idist/build/autogen -g -no-user-package-db -g -package-conf='.FindCabalSandboxRootPackageConf() 
 " let g:hdevtools_options = '-g -ilib -g -itest -g -isrc -g -i. -g -idist/build/autogen -g -Wall '
 "let g:hdevtools_options = '-g -ilib -g -itest -g -isrc -g -i. -g -idist/build/autogen'
