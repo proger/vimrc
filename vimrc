@@ -80,6 +80,8 @@ set completeopt+=longest	" do not select the first variant by default
 "autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+nnoremap ;s :%s/\<<C-r><C-w>\>/
+
 " mappings
 nmap :W :w
 nmap :Q :q
