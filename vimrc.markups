@@ -1,15 +1,14 @@
 Bundle "avakhov/vim-yaml.git"
 
 Bundle "tpope/vim-markdown.git"
-Bundle "mkitt/markdown-preview.vim.git"
-
-function! Deckset()
-	let s:pos = line2byte(line("."))
-	let s:cmd = "osascript -e 'tell application \"Deckset\" to tell document 1 to set position to " . s:pos . "'"
-	execute "silent ! ".s:cmd
-endfunction
-
-nnoremap <Leader>\ :call Deckset()<CR>
-
-let g:instant_markdown_slow = 1
+"Bundle "mkitt/markdown-preview.vim.git"
+"function! Deckset()
+"	let s:pos = line2byte(line("."))
+"	let s:cmd = "osascript -e 'tell application \"Deckset\" to tell document 1 to set position to " . s:pos . "'"
+"	execute "silent ! ".s:cmd
+"endfunction
+"
+"nnoremap <Leader>\ :call Deckset()<CR>
+"
+"let g:instant_markdown_slow = 1
 

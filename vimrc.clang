@@ -20,6 +20,7 @@ augroup filetype
 
 	au FileType c setlocal noexpandtab cindent cinoptions=:0,t0,+4,(4
 	au FileType cpp setlocal noexpandtab cindent cinoptions=:0,t0,+4,(4
+	au FileType objc setlocal et ts=4 sw=4 sts=4
 
 	au FileType c setlocal omnifunc=ClangComplete
 	au FileType cpp setlocal omnifunc=ClangComplete
